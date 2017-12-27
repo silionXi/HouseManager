@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 
+//项目框架library，主要是自己编写和封装的各种框架或类，可应用于其他项目的开发
 android {
     compileSdkVersion 26
 
