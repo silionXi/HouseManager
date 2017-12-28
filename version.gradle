@@ -1,0 +1,21 @@
+/*
+Shared gradle properties
+ */
+ext {
+
+    android = [
+            compileSdkVersion: 24,
+            minSdkVersion    : 16,
+            targetSdkVersion : 26,
+            javaVersion      : JavaVersion.VERSION_1_8,
+//            versionCode      : 1,
+//            versionName      : '1.0',
+//            appApplicationId : 'com.anthony.app'
+    ]
+
+
+    depsVersion = [
+            appcompat : '26.1.0',
+            logger : '2.1.1',
+    ]
+}

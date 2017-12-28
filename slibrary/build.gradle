@@ -2,13 +2,11 @@ apply plugin: 'com.android.library'
 
 //项目框架library，主要是自己编写和封装的各种框架或类，可应用于其他项目的开发
 android {
-    compileSdkVersion 26
-
-
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -27,7 +25,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // appcompat
+    implementation 'com.android.support:appcompat-v7:' + depsVersion.appcompat
+    // Logger日志打印
+    compile 'com.orhanobut:logger:' + depsVersion.logger
 }
