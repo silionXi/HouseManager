@@ -6,8 +6,8 @@ import android.app.Application;
  * Created by silion on 2017/12/27.
  */
 
-public class HoseApplication extends Application {
-    private static HoseApplication mApplication;
+public class HouseApplication extends Application {
+    private static HouseApplication mApplication;
 
     @Override
     public void onCreate() {
@@ -16,7 +16,7 @@ public class HoseApplication extends Application {
         mApplication = this;
     }
 
-    public static HoseApplication getApplication() {
+    public static HouseApplication getApplication() {
         return mApplication;
     }
 }
