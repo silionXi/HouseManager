@@ -1,4 +1,4 @@
-package com.slibrary.ui.logger;
+package com.slibrary.utils.logger;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
