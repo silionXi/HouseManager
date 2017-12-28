@@ -19,5 +19,7 @@ android {
 }
 
 dependencies {
+    // appcompat
+    implementation 'com.android.support:appcompat-v7:' + depsVersion.appcompat
     api project(':slibrary')
 }
