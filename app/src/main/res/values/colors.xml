@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="introTitle">#FFCC33</color>
+    <color name="skipBackground">#333333</color>
+    <color name="skipText">#aaaaaa</color>
 </resources>

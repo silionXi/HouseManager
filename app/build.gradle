@@ -19,7 +19,12 @@ android {
 }
 
 dependencies {
+    api project(':slibrary')
     // appcompat
     implementation 'com.android.support:appcompat-v7:' + depsVersion.appcompat
-    api project(':slibrary')
+    // ConstraintLayout
+    implementation 'com.android.support.constraint:constraint-layout:' + depsVersion.constraintLayout
+    // Butter Knife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
