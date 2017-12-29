@@ -20,7 +20,7 @@
         android:textColor="@color/skipText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/skip_background"
+        android:background="@drawable/shape_skip_background"
         android:paddingBottom="2dp"
         android:paddingEnd="20dp"
         android:paddingStart="20dp"

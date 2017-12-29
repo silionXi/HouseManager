@@ -1,7 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clipChildren="false">
 
-</RelativeLayout>
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <View
+        android:background="#cccccc"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:drawableTop="@drawable/house_icon_selector"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/house_select"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:padding="10dp"
+            android:src="@drawable/myhouse_icon"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_circle"/>
+
+        <TextView
+            android:drawableTop="@drawable/community_icon_selector"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:text="@string/community"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
