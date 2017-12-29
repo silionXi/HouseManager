@@ -7,6 +7,8 @@ import com.slibrary.utils.logger.Logger;
 
 
 /**
+ * Created by silion on 2017/12/28.
+ *
  * BaseActivity,所有Activity继承该Activity
  */
 

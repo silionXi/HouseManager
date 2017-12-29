@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">slibrary</string>
+    <string name="permission_is_granted">已经有%s权限了...</string>
 </resources>
