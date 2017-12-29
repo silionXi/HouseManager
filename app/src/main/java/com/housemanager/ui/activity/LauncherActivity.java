@@ -35,6 +35,8 @@ public class LauncherActivity extends PermissionActivity {
             R.drawable.launcher_viewpage_02,
             R.drawable.launcher_viewpage_03
     };
+    @BindView(R.id.skip)
+    TextView mSkip;
     private PagerAdapter mPagerAdapter = new PagerAdapter() {
         @Override
         public int getCount() {
@@ -98,6 +100,7 @@ public class LauncherActivity extends PermissionActivity {
 
     private void initViewPager() {
         mViewPager.setAdapter(mPagerAdapter);
+        mSkip.setVisibility(View.VISIBLE);
         mTimer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
