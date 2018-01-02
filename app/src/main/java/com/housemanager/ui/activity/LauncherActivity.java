@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.housemanager.R;
 import com.slibrary.ui.activity.PermissionActivity;
-import com.slibrary.utils.UiUtils;
+import com.slibrary.utils.UIUtils;
 import com.slibrary.utils.logger.Logger;
 
 import java.util.Timer;
@@ -70,7 +70,7 @@ public class LauncherActivity extends PermissionActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        UiUtils.setStatusBarVisibility(getWindow(), false);
+        UIUtils.setStatusBarVisibility(getWindow(), false);
         setContentView(R.layout.activity_launcher);
         ButterKnife.bind(this);
 

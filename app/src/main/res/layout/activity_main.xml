@@ -6,8 +6,13 @@
     android:clipChildren="false"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"/>
+
+    <com.slibrary.ui.widget.NoScrollViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
@@ -26,15 +31,18 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tvSelelctHouse"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/house_icon_selector"
             android:gravity="center"
-            android:text="@string/house_select"/>
+            android:text="@string/house_select"
+            android:textColor="@color/house_community_color_selector"/>
 
         <ImageView
+            android:id="@+id/ivLogin"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="bottom"
@@ -43,12 +51,14 @@
             android:src="@drawable/myhouse_icon"/>
 
         <TextView
+            android:id="@+id/tvCommunity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawablePadding="5dp"
             android:drawableTop="@drawable/community_icon_selector"
             android:gravity="center"
-            android:text="@string/community"/>
+            android:text="@string/community"
+            android:textColor="@color/house_community_color_selector"/>
     </LinearLayout>
 </LinearLayout>

@@ -30,6 +30,8 @@ dependencies {
     /************************ Google ***********************/
     // appcompat
     implementation 'com.android.support:appcompat-v7:' + depsVersion.appcompat
+    // support-v13
+    implementation 'com.android.support:support-v13:' + depsVersion.support
     // Logger日志打印
     implementation 'com.orhanobut:logger:' + depsVersion.logger
 }

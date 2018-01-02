@@ -8,7 +8,7 @@ import android.view.WindowManager;
  * Created by silion on 2017/12/29.
  */
 
-public class UiUtils {
+public class UIUtils {
 
     /**
      * 设置是否显示状态栏(即是否全屏显示)

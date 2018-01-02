@@ -3,5 +3,7 @@
     <string name="intro_desc">Manage your House</string>
     <string name="skip">跳过</string>
     <string name="house_select">选房</string>
+    <string name="house_select_online">在线选房</string>
     <string name="community">社区</string>
+    <string name="house_community">House社区</string>
 </resources>

@@ -7,6 +7,8 @@
     <color name="introTitle">#FFCC33</color>
     <color name="skipBackground">#333333</color>
     <color name="skipText">#aaaaaa</color>
-    <color name="home_community_color_select">#FE7B8A</color>
-    <color name="home_community_color">#8D8D8D</color>
+    <color name="house_community_color_select">#FE7B8A</color>
+    <color name="house_community_color">#8D8D8D</color>
+    <color name="actionBarBackground">#5FD3D0</color>
+    <color name="actionBarTextColor">#FCFFFF</color>
 </resources>
