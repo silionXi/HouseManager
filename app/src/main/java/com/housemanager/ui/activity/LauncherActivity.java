@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.housemanager.R;
 import com.slibrary.ui.activity.PermissionActivity;
 import com.slibrary.utils.UIUtils;
-import com.slibrary.utils.logger.Logger;
+import com.slibrary.logger.Logger;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -110,6 +110,7 @@ public class LauncherActivity extends PermissionActivity {
                 Logger.d(LauncherActivity.this, "viewpager update");
                 final int position = mViewPager.getCurrentItem();
                 if (position == mImageIds.length - 1) {
+                    mTimer.cancel();
                     startMainActivity();
                 } else {
                     runOnUiThread(new Runnable() {

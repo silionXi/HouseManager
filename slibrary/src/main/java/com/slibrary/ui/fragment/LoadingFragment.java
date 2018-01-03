@@ -20,7 +20,7 @@ import java.util.List;
  * 1. LoadingPage封装
  * @see LoadingPage
  * 2. BaseAdapter封装
-// * @see MyBaseAdapter
+// * @see BaseListAdapter
  * 3. BaseHolder封装
 // * @see BaseHolder
  */

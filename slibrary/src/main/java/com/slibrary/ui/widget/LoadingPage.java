@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.slibrary.R;
+import com.slibrary.manager.ThreadManager;
 
 /**
  * 加载页面 - 正在加载 - 加载失败 - 数据为空 - 访问成功
@@ -157,28 +158,8 @@ public abstract class LoadingPage extends FrameLayout {
 
 		if (mCurrentState == STATE_UNLOAD) {
 			// 异步加载网络数据
-//			ThreadManager.getThreadPool().execute(new Runnable() {
-//
-//				@Override
-//				public void run() {
-//					// 开始加载网络数据
-//					final ResultState state = onLoad();
-//					// 必须在主线程更新界面
-//					UIUtils.runOnUiThread(new Runnable() {
-//
-//						@Override
-//						public void run() {
-//							if (state != null) {
-//								// 更新当前状态
-//								mCurrentState = state.getState();
-//								// 更新当前页面
-//								showRightPage();
-//							}
-//						}
-//					});
-//				}
-//			});
-			new Thread(new Runnable() {
+			ThreadManager.getThreadPool().execute(new Runnable() {
+
 				@Override
 				public void run() {
 					// 开始加载网络数据
@@ -197,7 +178,7 @@ public abstract class LoadingPage extends FrameLayout {
 						}
 					});
 				}
-			}).start();
+			});
 		}
 	}
 

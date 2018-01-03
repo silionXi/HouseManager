@@ -1,12 +1,7 @@
 package com.slibrary.ui.activity;
 
 import android.Manifest;
-import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-
-import com.slibrary.R;
-import com.slibrary.utils.logger.Logger;
 
 /**
  * Created by silion on 2017/12/28.

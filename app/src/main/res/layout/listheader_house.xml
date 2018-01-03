@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#F6F6F6">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:background="#FF8611"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="本月最佳公寓"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tvMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:drawablePadding="5dp"
+        android:drawableRight="@drawable/back_white_icon"
+        android:text="更多"
+        android:textSize="20sp"/>
+
+    <FrameLayout
+        android:layout_below="@+id/tvMore"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"/>
+</RelativeLayout>

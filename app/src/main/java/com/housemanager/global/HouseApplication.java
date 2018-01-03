@@ -2,7 +2,7 @@ package com.housemanager.global;
 
 import android.app.Application;
 
-import com.slibrary.utils.logger.Logger;
+import com.slibrary.logger.Logger;
 
 /**
  * Created by silion on 2017/12/27.

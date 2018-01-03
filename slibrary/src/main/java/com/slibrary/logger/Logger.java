@@ -1,4 +1,4 @@
-package com.slibrary.utils.logger;
+package com.slibrary.logger;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
@@ -52,5 +52,9 @@ public class Logger {
      */
     public static void d(Object object) {
         com.orhanobut.logger.Logger.d(object);
+    }
+
+    public static void e(Throwable throwable, String message, Object... args) {
+        com.orhanobut.logger.Logger.e(throwable, message, args);
     }
 }
