@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -16,6 +17,7 @@ import com.housemanager.R;
 import com.housemanager.domain.SelectHouse;
 import com.housemanager.global.GlobalData;
 import com.slibrary.ui.holder.BaseHolder;
+import com.slibrary.utils.MeasureUtils;
 
 import java.util.List;
 
@@ -50,7 +52,9 @@ public class HouseBannerHolder extends BaseHolder<List<SelectHouse.BannerBean>> 
     @Override
     public void refreshView(final List<SelectHouse.BannerBean> data) {
         mTvTitle.setText("本月最佳公寓");
-        ViewPager viewPager = new ViewPager(mContext);
+
+        View view = LayoutInflater.from(mContext).inflate(R.layout.layout_house_banner, mContent, false);
+        ViewPager viewPager = view.findViewById(R.id.viewPager);
         PagerAdapter pagerAdapter = new PagerAdapter() {
             @Override
             public int getCount() {
@@ -78,6 +82,19 @@ public class HouseBannerHolder extends BaseHolder<List<SelectHouse.BannerBean>> 
             }
         };
         viewPager.setAdapter(pagerAdapter);
-        mContent.addView(viewPager);
+
+        LinearLayout llIndicator = view.findViewById(R.id.llIndicator);
+        for (int i = 0; i < data.size(); i++) {
+            ImageView imageView = new ImageView(mContext);
+            imageView.setImageResource(R.drawable.shape_circle_normal);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
+                    .LayoutParams.WRAP_CONTENT);
+            if (i != 0) {
+                lp.leftMargin = MeasureUtils.dp2Px(mContext, 5);
+            }
+            llIndicator.addView(imageView, lp);
+        }
+
+        mContent.addView(view);
     }
 }
