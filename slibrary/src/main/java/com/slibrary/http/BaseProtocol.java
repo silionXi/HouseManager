@@ -6,10 +6,15 @@ import android.text.TextUtils;
 import com.slibrary.utils.IOUtils;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * 访问网络的基类
@@ -38,6 +43,7 @@ public abstract class BaseProtocol<T> {
 		}
 
 		if (result != null) {
+			setCache(result, index);
 			return parseJson(result);
 		}
 
@@ -142,6 +148,28 @@ public abstract class BaseProtocol<T> {
 	 */
 	private String getDataFromNet(int index) {
 		// TODO: 2018/1/2 实现从网络加载数据
+		InputStream is = null;
+		try {
+			URL url = new URL("http://bmob-cdn-16086.b0.upaiyun.com/2018/01/03/6f9aeba440feb93c80d264d9b9787334.html");
+			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+			httpURLConnection.setConnectTimeout(5000);
+			if (httpURLConnection.getResponseCode() >= HttpURLConnection.HTTP_OK && httpURLConnection.getResponseCode() <=
+					HttpURLConnection.HTTP_BAD_REQUEST) {
+				is = httpURLConnection.getInputStream();
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				int b;
+				while ((b = is.read()) != -1) {
+					baos.write(b);
+				}
+				return baos.toString();
+			}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			IOUtils.close(is);
+		}
 		return null;
 	}
 
