@@ -20,6 +20,8 @@ import com.slibrary.ui.holder.BaseHolder;
 import com.slibrary.utils.MeasureUtils;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,6 +38,8 @@ public class HouseBannerHolder extends BaseHolder<List<SelectHouse.BannerBean>> 
     TextView mTvMore;
     @BindView(R.id.content)
     FrameLayout mContent;
+    private int mCurrentPager;
+    private Timer mTimer;
 
     public HouseBannerHolder(Context context) {
         super(context);
@@ -53,8 +57,24 @@ public class HouseBannerHolder extends BaseHolder<List<SelectHouse.BannerBean>> 
     public void refreshView(final List<SelectHouse.BannerBean> data) {
         mTvTitle.setText("本月最佳公寓");
 
-        View view = LayoutInflater.from(mContext).inflate(R.layout.layout_house_banner, mContent, false);
-        ViewPager viewPager = view.findViewById(R.id.viewPager);
+        final View view = LayoutInflater.from(mContext).inflate(R.layout.layout_house_banner, mContent, false);
+
+        final LinearLayout llIndicator = view.findViewById(R.id.llIndicator);
+        for (int i = 0; i < data.size(); i++) {
+            ImageView imageView = new ImageView(mContext);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
+                    .LayoutParams.WRAP_CONTENT);
+            if (i != 0) {
+                imageView.setImageResource(R.drawable.shape_circle_normal);
+                lp.leftMargin = MeasureUtils.dp2Px(mContext, 5);
+            } else {
+                imageView.setImageResource(R.drawable.shape_circle_select);
+                mCurrentPager = 0;
+            }
+            llIndicator.addView(imageView, lp);
+        }
+
+        final ViewPager viewPager = view.findViewById(R.id.viewPager);
         PagerAdapter pagerAdapter = new PagerAdapter() {
             @Override
             public int getCount() {
@@ -82,18 +102,35 @@ public class HouseBannerHolder extends BaseHolder<List<SelectHouse.BannerBean>> 
             }
         };
         viewPager.setAdapter(pagerAdapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-        LinearLayout llIndicator = view.findViewById(R.id.llIndicator);
-        for (int i = 0; i < data.size(); i++) {
-            ImageView imageView = new ImageView(mContext);
-            imageView.setImageResource(R.drawable.shape_circle_normal);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout
-                    .LayoutParams.WRAP_CONTENT);
-            if (i != 0) {
-                lp.leftMargin = MeasureUtils.dp2Px(mContext, 5);
             }
-            llIndicator.addView(imageView, lp);
-        }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (mCurrentPager != position) {
+                    ((ImageView) llIndicator.getChildAt(position)).setImageResource(R.drawable.shape_circle_select);
+                    ((ImageView) llIndicator.getChildAt(mCurrentPager)).setImageResource(R.drawable.shape_circle_normal);
+                    mCurrentPager = position;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        viewPager.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                int position = viewPager.getCurrentItem() + 1;
+                viewPager.setCurrentItem(position % data.size());
+                viewPager.postDelayed(this, 1500);
+            }
+        }, 1500);
 
         mContent.addView(view);
     }
