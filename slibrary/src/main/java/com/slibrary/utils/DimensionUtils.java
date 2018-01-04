@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by silion on 2018/1/4.
  */
 
-public class MeasureUtils {
+public class DimensionUtils {
     /*
      * dp转px
      * 可以参考TypedValue#applyDimension

@@ -17,11 +17,10 @@ import com.housemanager.R;
 import com.housemanager.domain.SelectHouse;
 import com.housemanager.global.GlobalData;
 import com.slibrary.ui.holder.BaseHolder;
-import com.slibrary.utils.MeasureUtils;
+import com.slibrary.utils.DimensionUtils;
 
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,7 +65,7 @@ public class HouseBannerHolder extends BaseHolder<List<SelectHouse.BannerBean>> 
                     .LayoutParams.WRAP_CONTENT);
             if (i != 0) {
                 imageView.setImageResource(R.drawable.shape_circle_normal);
-                lp.leftMargin = MeasureUtils.dp2Px(mContext, 5);
+                lp.leftMargin = DimensionUtils.dp2Px(mContext, 5);
             } else {
                 imageView.setImageResource(R.drawable.shape_circle_select);
                 mCurrentPager = 0;
